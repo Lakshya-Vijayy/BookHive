@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Books | BookHive</title>
+  <meta name="description" content="Browse, search and sort the BookHive catalogue.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/books.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="BookHive home">Book<span>Hive</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Open or close navigation menu">
+      <label for="nav-toggle" class="nav-toggle" aria-hidden="true"><span></span></label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="books.html" aria-current="page">Books</a></li>
+        <li><a href="future-shelf.html">Future Shelf</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="cart-link" href="cart.html" aria-label="Shopping cart, 2 items"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 7H6"/></svg><span class="cart-badge" aria-hidden="true">2</span></a></li>
+        <li><a class="login-link" href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-header">
+      <div class="container">
+        <h1>Books</h1>
+        <p>Search the shelves, filter by category, or sort by price to find your next read.</p>
+      </div>
+    </div>
+
+    <section class="section" aria-label="Book catalogue">
+      <div class="container">
+        <form class="toolbar" role="search" action="books.html" method="get">
+          <div class="field search-group-wrap">
+            <label for="q">Search books</label>
+            <div class="search-group">
+              <input class="input" type="search" id="q" name="q" placeholder="Title or author">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="category">Category</label>
+            <select class="select" id="category" name="category">
+              <option value="">All categories</option>
+              <option value="fiction">Fiction</option>
+              <option value="education">Education</option>
+              <option value="biographies">Biographies</option>
+              <option value="business">Business</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sort">Sort by</label>
+            <select class="select" id="sort" name="sort">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="title">Title: A to Z</option>
+            </select>
+          </div>
+        </form>
+
+        <p class="results-meta" role="status">Showing <strong>8</strong> sample books</p>
+
+        <ul class="book-grid">
+          <li class="book-card">
+            <a class="book-card__cover" href="book.html" aria-label="View details for The God of Small Things">
+              <div class="cover cover--1" role="img" aria-label="Cover of The God of Small Things by Arundhati Roy">
+                <span class="cover__title">The God of Small Things</span>
+                <span class="cover__author">Arundhati Roy</span>
+              </div>
+            </a>
+            <h3 class="book-card__title"><a href="book.html">The God of Small Things</a></h3>
+            <p class="book-card__author">Arundhati Roy</p>
+            <p class="book-card__price price">&#8377;399</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+          <li class="book-card">
+            <a class="book-card__cover" href="book.html" aria-label="View details for Wings of Fire">
+              <div class="cover cover--2" role="img" aria-label="Cover of Wings of Fire by A. P. J. Abdul Kalam">
+                <span class="cover__title">Wings of Fire</span>
+                <span class="cover__author">A. P. J. Abdul Kalam</span>
+              </div>
+            </a>
+            <h3 class="book-card__title"><a href="book.html">Wings of Fire</a></h3>
+            <p class="book-card__author">A. P. J. Abdul Kalam</p>
+            <p class="book-card__price price">&#8377;299</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+          <li class="book-card">
+            <a class="book-card__cover" href="book.html" aria-label="View details for The White Tiger">
+              <div class="cover cover--3" role="img" aria-label="Cover of The White Tiger by Aravind Adiga">
+                <span class="cover__title">The White Tiger</span>
+                <span class="cover__author">Aravind Adiga</span>
+              </div>
+            </a>
+            <h3 class="book-card__title"><a href="book.html">The White Tiger</a></h3>
+            <p class="book-card__author">Aravind Adiga</p>
+            <p class="book-card__price price">&#8377;349</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+          <li class="book-card">
+            <a class="book-card__cover" href="book.html" aria-label="View details for Engineering Mathematics">
+              <div class="cover cover--4" role="img" aria-label="Cover of Engineering Mathematics by B. S. Grewal">
+                <span class="cover__title">Engineering Mathematics</span>
+                <span class="cover__author">B. S. Grewal</span>
+              </div>
+            </a>
+            <h3 class="book-card__title"><a href="book.html">Engineering Mathematics</a></h3>
+            <p class="book-card__author">B. S. Grewal</p>
+            <p class="book-card__price price">&#8377;550</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+          <li class="book-card">
+            <a class="book-card__cover" href="book.html" aria-label="View details for Autobiography of a Yogi">
+              <div class="cover cover--5" role="img" aria-label="Cover of Autobiography of a Yogi by Paramahansa Yogananda">
+                <span class="cover__title">Autobiography of a Yogi</span>
+                <span class="cover__author">Paramahansa Yogananda</span>
+              </div>
+            </a>
+            <h3 class="book-card__title"><a href="book.html">Autobiography of a Yogi</a></h3>
+            <p class="book-card__author">Paramahansa Yogananda</p>
+            <p class="book-card__price price">&#8377;275</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+          <li class="book-card">
+            <a class="book-card__cover" href="book.html" aria-label="View details for Malgudi Days">
+              <div class="cover cover--6" role="img" aria-label="Cover of Malgudi Days by R. K. Narayan">
+                <span class="cover__title">Malgudi Days</span>
+                <span class="cover__author">R. K. Narayan</span>
+              </div>
+            </a>
+            <h3 class="book-card__title"><a href="book.html">Malgudi Days</a></h3>
+            <p class="book-card__author">R. K. Narayan</p>
+            <p class="book-card__price price">&#8377;249</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+          <li class="book-card">
+            <a class="book-card__cover" href="book.html" aria-label="View details for The Psychology of Money">
+              <div class="cover cover--7" role="img" aria-label="Cover of The Psychology of Money by Morgan Housel">
+                <span class="cover__title">The Psychology of Money</span>
+                <span class="cover__author">Morgan Housel</span>
+              </div>
+            </a>
+            <h3 class="book-card__title"><a href="book.html">The Psychology of Money</a></h3>
+            <p class="book-card__author">Morgan Housel</p>
+            <p class="book-card__price price">&#8377;399</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+          <li class="book-card">
+            <a class="book-card__cover" href="book.html" aria-label="View details for Train to Pakistan">
+              <div class="cover cover--8" role="img" aria-label="Cover of Train to Pakistan by Khushwant Singh">
+                <span class="cover__title">Train to Pakistan</span>
+                <span class="cover__author">Khushwant Singh</span>
+              </div>
+            </a>
+            <h3 class="book-card__title"><a href="book.html">Train to Pakistan</a></h3>
+            <p class="book-card__author">Khushwant Singh</p>
+            <p class="book-card__price price">&#8377;225</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+        </ul>
+
+        <div class="state-preview">
+          <h2>Empty results state (design preview)</h2>
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2.5z"/><path d="M9 9l5 5M14 9l-5 5"/></svg>
+            <h3>No books found</h3>
+            <p class="muted">Try a different title, author or category.</p>
+            <a class="btn btn-secondary" href="books.html">Clear search</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">Book<span>Hive</span></a>
+          <p>A warm, focused bookstore for Indian readers.</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="future-shelf.html">Future Shelf</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h2>Follow</h2>
+          <ul>
+            <!-- Replace "#" with real profile URLs when they exist -->
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">X (Twitter)</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 BookHive. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

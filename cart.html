@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Cart | BookHive</title>
+  <meta name="description" content="Review the books in your BookHive cart.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/books.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="BookHive home">Book<span>Hive</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Open or close navigation menu">
+      <label for="nav-toggle" class="nav-toggle" aria-hidden="true"><span></span></label>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="future-shelf.html">Future Shelf</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a class="cart-link" href="cart.html" aria-label="Shopping cart, 2 items" aria-current="page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="20" r="1.5"/>
+              <circle cx="18" cy="20" r="1.5"/>
+              <path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 7H6"/>
+            </svg>
+            <span class="cart-badge" aria-hidden="true">2</span>
+          </a>
+        </li>
+        <li><a class="login-link" href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-header">
+      <div class="container">
+        <h1>Your Cart</h1>
+        <p>Sample items are shown to demonstrate the layout.</p>
+      </div>
+    </div>
+
+    <section class="section" aria-label="Cart">
+      <div class="container cart-layout">
+        <ul class="cart-list">
+
+          <li class="cart-item">
+            <div class="cover cover--1"
+                 role="img"
+                 aria-label="The God of Small Things by Arundhati Roy">
+              <span class="cover__title">The God of Small Things</span>
+              <span class="cover__author">Arundhati Roy</span>
+            </div>
+
+            <div class="cart-item__info">
+              <h3 class="cart-item__title">
+                <a href="book.html">The God of Small Things</a>
+              </h3>
+              <p class="cart-item__author">Arundhati Roy</p>
+              <p class="cart-item__unit">&#8377;399 each</p>
+            </div>
+
+            <div class="qty" role="group" aria-label="Quantity for The God of Small Things">
+              <button type="button" aria-label="Decrease quantity of The God of Small Things">&minus;</button>
+              <span class="qty__value">1</span>
+              <button type="button" aria-label="Increase quantity of The God of Small Things">+</button>
+            </div>
+
+            <p class="cart-item__total">&#8377;399</p>
+            <button type="button" class="remove-btn" aria-label="Remove The God of Small Things from cart">Remove</button>
+          </li>
+
+          <li class="cart-item">
+            <div class="cover cover--2"
+                 role="img"
+                 aria-label="Wings of Fire by A. P. J. Abdul Kalam">
+              <span class="cover__title">Wings of Fire</span>
+              <span class="cover__author">A. P. J. Abdul Kalam</span>
+            </div>
+
+            <div class="cart-item__info">
+              <h3 class="cart-item__title">
+                <a href="book.html">Wings of Fire</a>
+              </h3>
+              <p class="cart-item__author">A. P. J. Abdul Kalam</p>
+              <p class="cart-item__unit">&#8377;299 each</p>
+            </div>
+
+            <div class="qty" role="group" aria-label="Quantity for Wings of Fire">
+              <button type="button" aria-label="Decrease quantity of Wings of Fire">&minus;</button>
+              <span class="qty__value">2</span>
+              <button type="button" aria-label="Increase quantity of Wings of Fire">+</button>
+            </div>
+
+            <p class="cart-item__total">&#8377;598</p>
+            <button type="button" class="remove-btn" aria-label="Remove Wings of Fire from cart">Remove</button>
+          </li>
+
+        </ul>
+
+        <aside class="summary" aria-labelledby="summary-title">
+          <h2 id="summary-title">Order summary</h2>
+
+          <div class="summary__row">
+            <span>Subtotal (3 items)</span>
+            <span class="price">&#8377;997</span>
+          </div>
+
+          <p class="field-hint">Shipping and taxes are calculated at checkout.</p>
+
+          <div class="summary__row summary__row--total">
+            <span>Subtotal</span>
+            <span>&#8377;997</span>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-block btn-lg">Proceed to Checkout</button>
+          <a class="btn btn-secondary btn-block" href="books.html">Continue shopping</a>
+        </aside>
+      </div>
+
+      <div class="container state-preview">
+        <h2>Empty cart state (design preview)</h2>
+
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1.5"/>
+            <circle cx="18" cy="20" r="1.5"/>
+            <path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 7H6"/>
+          </svg>
+
+          <h3>Your cart is empty</h3>
+          <p class="muted">Looks like you haven't added any books yet.</p>
+          <a class="btn btn-primary" href="books.html">Browse Books</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">Book<span>Hive</span></a>
+          <p>A warm, focused bookstore for Indian readers.</p>
+        </div>
+
+        <nav class="footer-col" aria-label="Footer">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="future-shelf.html">Future Shelf</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col">
+          <h2>Follow</h2>
+          <ul>
+            <!-- Replace "#" with real profile URLs when they exist -->
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">X (Twitter)</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="copyright">&copy; 2026 BookHive. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

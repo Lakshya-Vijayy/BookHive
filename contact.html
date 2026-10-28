@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | BookHive</title>
+  <meta name="description" content="Get in touch with the BookHive team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/books.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="BookHive home">Book<span>Hive</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Open or close navigation menu">
+      <label for="nav-toggle" class="nav-toggle" aria-hidden="true"><span></span></label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="future-shelf.html">Future Shelf</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a class="cart-link" href="cart.html" aria-label="Shopping cart, 2 items"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 7H6"/></svg><span class="cart-badge" aria-hidden="true">2</span></a></li>
+        <li><a class="login-link" href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-header">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>Questions about an order or a book? Send us a message.</p>
+      </div>
+    </div>
+
+    <section class="section" aria-label="Contact form">
+      <div class="container contact-layout">
+        <div class="card card--wide">
+          <div id="sent" class="alert alert--success target-alert" role="status">Thanks! Your message has been received.</div>
+          <p class="note-box">Design preview: this form is not connected to a backend yet.</p>
+          <form action="contact.html#sent" method="get">
+            <div class="field">
+              <label for="name">Name</label>
+              <input class="input" type="text" id="name" name="name" autocomplete="name" required>
+              <p class="field-error" data-for-invalid>Please enter your name.</p>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input class="input" type="email" id="email" name="email" autocomplete="email" required>
+              <p class="field-error" data-for-invalid>Enter a valid email address.</p>
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input class="input" type="text" id="subject" name="subject" required>
+              <p class="field-error" data-for-invalid>Please add a subject.</p>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea class="textarea" id="message" name="message" required minlength="10"></textarea>
+              <p class="field-error" data-for-invalid>Message must be at least 10 characters.</p>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+
+        <aside class="contact-info" aria-labelledby="details-title">
+          <h2 id="details-title">Contact details</h2>
+          <p>Contact details will be added here once they are available.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">Book<span>Hive</span></a>
+          <p>A warm, focused bookstore for Indian readers.</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="future-shelf.html">Future Shelf</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h2>Follow</h2>
+          <ul>
+            <!-- Replace "#" with real profile URLs when they exist -->
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">X (Twitter)</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 BookHive. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

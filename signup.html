@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up | BookHive</title>
+  <meta name="description" content="Create your BookHive account.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="BookHive home">Book<span>Hive</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Open or close navigation menu">
+      <label for="nav-toggle" class="nav-toggle" aria-hidden="true"><span></span></label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="cart-link" href="cart.html" aria-label="Shopping cart, 2 items"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 7H6"/></svg><span class="cart-badge" aria-hidden="true">2</span></a></li>
+        <li><a class="login-link" href="login.html" aria-current="page">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main" class="auth-wrap">
+    <div class="container" style="display:grid;place-items:center">
+      <section class="card" aria-labelledby="signup-title">
+        <h1 id="signup-title">Create your account</h1>
+        <p class="muted" style="text-align:center">Join BookHive and start reading.</p>
+        <p class="note-box">Design preview: this form is not connected to a backend. Real authentication must be handled on a server.</p>
+
+        <form action="#" method="post">
+          <div class="field">
+            <label for="name">Name</label>
+            <input class="input" type="text" id="name" name="name" autocomplete="name" required>
+            <p class="field-error" data-for-invalid>Please enter your name.</p>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+            <p class="field-error" data-for-invalid>Enter a valid email address.</p>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input class="input" type="password" id="password" name="password" autocomplete="new-password" required minlength="8" aria-describedby="pw-hint">
+            <p id="pw-hint" class="field-hint">At least 8 characters.</p>
+            <p class="field-error" data-for-invalid>Password must be at least 8 characters.</p>
+          </div>
+          <div class="field">
+            <label for="confirm">Confirm password</label>
+            <input class="input" type="password" id="confirm" name="confirm" autocomplete="new-password" required minlength="8">
+            <p class="field-error" data-for-invalid>Please confirm your password.</p>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+        </form>
+        <p class="alt-link">Already have an account? <a href="login.html">Login</a></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">Book<span>Hive</span></a>
+          <p>A warm, focused bookstore for Indian readers.</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="books.html">Books</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h2>Follow</h2>
+          <ul>
+            <!-- Replace "#" with real profile URLs when they exist -->
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">X (Twitter)</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 BookHive. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

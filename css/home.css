@@ -1,0 +1,373 @@
+
+/* =========================================================
+   BookHive — Home Page
+   Complete CSS-only animations for ALL books
+   ========================================================= */
+
+/* ==================== HERO SECTION ==================== */
+
+.hero {
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(244, 162, 97, 0.18),
+      transparent 45%
+    ),
+    var(--coffee);
+  color: var(--cream);
+  padding-block: var(--space-8);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: var(--space-7);
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: var(--space-3);
+}
+
+.hero h1 {
+  color: var(--cream);
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-4);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: #f0e1d0;
+  margin-bottom: var(--space-6);
+}
+
+.hero .btn-primary:focus-visible {
+  outline-color: var(--cream);
+}
+
+/* ==================== HERO BOOKS ==================== */
+
+.hero__shelf {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: var(--space-4);
+  perspective: 1000px;
+}
+
+.hero__shelf .cover {
+  width: 30%;
+  max-width: 150px;
+  position: relative;
+  transform-origin: bottom center;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.35),
+    inset 6px 0 0 rgba(0, 0, 0, 0.15);
+  animation: heroBookFloat 3.5s ease-in-out infinite;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+
+.hero__shelf .cover:nth-child(2) {
+  width: 34%;
+  max-width: 170px;
+  animation-delay: 0.5s;
+}
+
+.hero__shelf .cover:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.hero__shelf .cover__title {
+  font-size: clamp(0.8rem, 1.6vw, 1.05rem);
+}
+
+@keyframes heroBookFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+/* Hover: lift and tilt each hero book */
+
+.hero__shelf .cover:hover {
+  animation-play-state: paused;
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.35);
+  z-index: 3;
+}
+
+.hero__shelf .cover:nth-child(1):hover {
+  transform: translateY(-7px) rotate(-2deg) scale(1.03);
+}
+
+.hero__shelf .cover:nth-child(2):hover {
+  transform: translateY(-7px) rotate(0deg) scale(1.03);
+}
+
+.hero__shelf .cover:nth-child(3):hover {
+  transform: translateY(-7px) rotate(2deg) scale(1.03);
+}
+
+/* ==================== FEATURED BOOKS ==================== */
+
+.featured .book-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.section-link {
+  text-align: center;
+  margin-top: var(--space-6);
+}
+
+/* ==================== ALL BOOK COVER INTERACTIONS ==================== */
+
+/*
+  Target book covers throughout the Home page.
+  Covers use the same lift-and-tilt interaction as inner pages.
+*/
+
+.featured .book-card__cover .cover,
+.featured .detail__cover,
+.featured .cart-item .cover {
+  transform-origin: bottom center;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+
+/* Standard book-card cover hover */
+
+.featured .book-card__cover:hover .cover {
+  transform: translateY(-7px) rotate(-2deg) scale(1.03);
+  box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+/* Alternate tilt direction on even-numbered books */
+
+.featured .book-card:nth-child(even)
+.book-card__cover:hover .cover {
+  transform: translateY(-7px) rotate(2deg) scale(1.03);
+}
+
+/* Keep cover hover smooth */
+
+.featured .book-card__cover .cover {
+  will-change: transform;
+}
+
+/* ==================== FEATURED BOOK SCROLL REVEAL ==================== */
+
+.featured .book-card {
+  animation: homeBouncyReveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 80%;
+}
+
+.featured .book-card:nth-child(4n + 2) {
+  animation-delay: 70ms;
+}
+
+.featured .book-card:nth-child(4n + 3) {
+  animation-delay: 130ms;
+}
+
+.featured .book-card:nth-child(4n + 4) {
+  animation-delay: 190ms;
+}
+
+@keyframes homeBouncyReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.94);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Fallback for browsers without scroll-driven animations */
+
+@supports not (animation-timeline: view()) {
+  .featured .book-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==================== BOOK CARD HOVER ==================== */
+
+.featured .book-card {
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.featured .book-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* ==================== CATEGORIES ==================== */
+
+.categories {
+  background: var(--cream-deep);
+  border-block: 1px solid var(--border);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.category-card {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--orange);
+}
+
+.category-card__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-4);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1.5px solid var(--orange);
+  color: var(--coffee);
+  transition: transform 0.35s ease;
+}
+
+.category-card:hover .category-card__icon {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.category-card__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.category-card h3 {
+  margin-bottom: var(--space-2);
+}
+
+.category-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__shelf {
+    margin-top: var(--space-5);
+    perspective: 800px;
+  }
+
+  .featured .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured .book-card {
+    animation-range: entry 0% entry 65%;
+  }
+}
+
+/* ==================== TOUCHSCREENS ==================== */
+
+@media (hover: none) {
+  .hero__shelf .cover {
+    animation: none;
+  }
+
+  .hero__shelf .cover:hover {
+    transform: none;
+  }
+
+  .featured .book-card__cover:hover .cover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .featured .book-card:hover,
+  .category-card:hover {
+    transform: none;
+  }
+
+  .category-card:hover .category-card__icon {
+    transform: none;
+  }
+}
+
+/* ==================== REDUCED MOTION ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__shelf .cover,
+  .featured .book-card,
+  .featured .book-card__cover .cover,
+  .category-card,
+  .category-card__icon {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero__shelf .cover {
+    translate: none;
+    transform: none;
+  }
+
+  .featured .book-card {
+    opacity: 1;
+    transform: none;
+  }
+}

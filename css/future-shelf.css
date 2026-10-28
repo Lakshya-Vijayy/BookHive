@@ -1,0 +1,947 @@
+/* =========================================================
+   BookHive — Future Shelf
+   CSS-only goal selection and reading roadmaps
+   ========================================================= */
+
+:root {
+  --future-coffee: #5B3A29;
+  --future-orange: #F4A261;
+  --future-cream: #FFF8F0;
+  --future-text: #2C2C2C;
+  --future-muted: #6B6B6B;
+  --future-border: #E8DCCE;
+  --future-green: #2E7D32;
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+.future-hero {
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at 80% 40%, rgba(244, 162, 97, 0.17), transparent 35%),
+    var(--future-cream);
+  padding: clamp(4rem, 8vw, 7rem) 0;
+}
+
+.future-hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.future-hero__content {
+  max-width: 620px;
+  animation: futureFadeUp 0.7s ease both;
+}
+
+.future-eyebrow {
+  display: inline-block;
+  color: var(--future-coffee);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.5;
+}
+
+.future-hero h1 {
+  margin: 1rem 0;
+  color: var(--future-text);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.7rem, 5vw, 4.7rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.future-hero h1 em {
+  color: var(--future-coffee);
+  font-weight: 600;
+}
+
+.future-hero__content > p {
+  max-width: 490px;
+  margin-bottom: 1.8rem;
+  color: var(--future-muted);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.future-hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* =========================================================
+   Decorative book illustration
+   ========================================================= */
+
+.future-hero__art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  isolation: isolate;
+}
+
+.future-orbit {
+  position: absolute;
+  border: 1px solid rgba(91, 58, 41, 0.16);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.future-orbit--one {
+  width: 310px;
+  height: 310px;
+}
+
+.future-orbit--two {
+  width: 390px;
+  height: 390px;
+  border-style: dashed;
+}
+
+.future-art-book {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 145px;
+  height: 220px;
+  padding: 1.1rem 0.9rem;
+  border-radius: 3px 9px 9px 3px;
+  box-shadow:
+    0 18px 35px rgba(44, 44, 44, 0.17),
+    inset 7px 0 0 rgba(0, 0, 0, 0.12);
+  animation: futureFloat 5s ease-in-out infinite;
+}
+
+.future-art-book span,
+.future-art-book small {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.future-art-book strong {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.future-art-book--one {
+  z-index: 3;
+  color: var(--future-cream);
+  background: var(--future-coffee);
+  transform: rotate(-8deg) translate(-35px, 0);
+}
+
+.future-art-book--two {
+  z-index: 2;
+  color: var(--future-text);
+  background: var(--future-orange);
+  transform: rotate(9deg) translate(60px, 10px);
+  animation-delay: -1.5s;
+}
+
+.future-art-book--three {
+  z-index: 1;
+  color: var(--future-cream);
+  background: #7B6651;
+  transform: rotate(-2deg) translate(5px, -45px);
+  animation-delay: -3s;
+}
+
+.future-art-star {
+  position: absolute;
+  z-index: 4;
+  color: var(--future-coffee);
+  font-size: 2rem;
+  animation: futureStar 3s ease-in-out infinite;
+}
+
+.future-art-star--one {
+  top: 10%;
+  right: 12%;
+}
+
+.future-art-star--two {
+  bottom: 9%;
+  left: 10%;
+  font-size: 2.6rem;
+  animation-delay: -1s;
+}
+
+/* =========================================================
+   Goal selection
+   ========================================================= */
+
+.future-goals {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+
+.future-section-heading {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.future-section-heading h2,
+.future-progress__content h2,
+.future-cta h2 {
+  margin: 0.8rem 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+
+.future-section-heading p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--future-muted);
+  line-height: 1.8;
+}
+
+/* Hide radio buttons visually but retain keyboard access */
+
+.future-shelf-interactive {
+  position: relative;
+}
+
+.future-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.goal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.goal-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 235px;
+  padding: 1.35rem;
+  background: #fff;
+  border: 1px solid var(--future-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.goal-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--future-orange);
+  box-shadow: 0 12px 25px rgba(44, 44, 44, 0.08);
+}
+
+.goal-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1.3rem;
+  border-radius: 12px;
+  color: var(--future-coffee);
+  background: #F9E8D7;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.goal-card__title {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--future-text);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.goal-card__description {
+  display: block;
+  flex: 1;
+  color: var(--future-muted);
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+.goal-card__select {
+  display: block;
+  margin-top: 1.2rem;
+  color: var(--future-coffee);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Selected goal styling */
+
+#goal-english:checked ~ .goal-grid label[for="goal-english"],
+#goal-business:checked ~ .goal-grid label[for="goal-business"],
+#goal-creativity:checked ~ .goal-grid label[for="goal-creativity"],
+#goal-philosophy:checked ~ .goal-grid label[for="goal-philosophy"] {
+  border-color: var(--future-coffee);
+  background: #FFF9F2;
+  box-shadow: 0 0 0 2px var(--future-coffee);
+}
+
+#goal-english:focus-visible ~ .goal-grid label[for="goal-english"],
+#goal-business:focus-visible ~ .goal-grid label[for="goal-business"],
+#goal-creativity:focus-visible ~ .goal-grid label[for="goal-creativity"],
+#goal-philosophy:focus-visible ~ .goal-grid label[for="goal-philosophy"] {
+  outline: 3px solid var(--future-orange);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   Roadmap visibility — CSS :checked interaction
+   ========================================================= */
+
+.roadmap-area {
+  margin-top: 3rem;
+}
+
+.roadmap {
+  display: none;
+  animation: roadmapReveal 0.45s ease both;
+}
+
+#goal-english:checked ~ .roadmap-area .roadmap--english,
+#goal-business:checked ~ .roadmap-area .roadmap--business,
+#goal-creativity:checked ~ .roadmap-area .roadmap--creativity,
+#goal-philosophy:checked ~ .roadmap-area .roadmap--philosophy {
+  display: block;
+}
+
+.roadmap-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.roadmap-heading h3 {
+  margin: 0.5rem 0;
+  color: var(--future-text);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.roadmap-heading p {
+  margin: 0;
+  color: var(--future-muted);
+  line-height: 1.7;
+}
+
+.roadmap-count {
+  flex-shrink: 0;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--future-border);
+  border-radius: 30px;
+  color: var(--future-coffee);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   Roadmap cards
+   ========================================================= */
+
+.roadmap-track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.roadmap-book {
+  position: relative;
+  min-width: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--future-border);
+  border-radius: 12px;
+  background: #fff;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.roadmap-book:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(44, 44, 44, 0.09);
+}
+
+.roadmap-stage {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--future-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.roadmap-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: min(100%, 175px);
+  aspect-ratio: 2 / 3;
+  margin: 0 auto 1.25rem;
+  padding: 1.1rem;
+  border-radius: 3px 8px 8px 3px;
+  color: var(--future-cream);
+  background: var(--future-coffee);
+  box-shadow:
+    0 10px 20px rgba(44, 44, 44, 0.13),
+    inset 6px 0 0 rgba(0, 0, 0, 0.15);
+  transform-origin: bottom center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.roadmap-cover:hover {
+  transform: translateY(-5px) rotate(-3deg) scale(1.025);
+  box-shadow: 0 16px 25px rgba(44, 44, 44, 0.2);
+}
+
+.roadmap-cover span {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1rem, 2vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.roadmap-cover small {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.roadmap-cover--english {
+  background: #355D4A;
+}
+
+.roadmap-cover--writing {
+  color: var(--future-text);
+  background: #E6B98A;
+}
+
+.roadmap-cover--speak {
+  background: #8D4A36;
+}
+
+.roadmap-cover--business {
+  background: #3E5144;
+}
+
+.roadmap-cover--ideas {
+  color: var(--future-text);
+  background: #E5B45D;
+}
+
+.roadmap-cover--strategy {
+  background: #3E536A;
+}
+
+.roadmap-cover--creativity {
+  background: #9B5847;
+}
+
+.roadmap-cover--design {
+  color: var(--future-text);
+  background: #F0C87D;
+}
+
+.roadmap-cover--create {
+  background: #526B54;
+}
+
+.roadmap-cover--philosophy {
+  background: #65517C;
+}
+
+.roadmap-cover--ethics {
+  color: var(--future-text);
+  background: #E4BE91;
+}
+
+.roadmap-cover--wisdom {
+  background: #3D5961;
+}
+
+.roadmap-book h4 {
+  margin: 0 0 0.6rem;
+  color: var(--future-text);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.roadmap-book > p {
+  min-height: 4.5em;
+  margin: 0 0 1.1rem;
+  color: var(--future-muted);
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
+.roadmap-level {
+  display: inline-block;
+  padding: 0.45rem 0.65rem;
+  border-radius: 30px;
+  color: var(--future-green);
+  background: #EAF4E9;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+.roadmap-note {
+  margin-top: 1rem;
+  color: var(--future-muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   Progress demo
+   ========================================================= */
+
+.future-progress-section {
+  padding-block: clamp(3rem, 6vw, 5rem);
+  background: #F7F0E7;
+}
+
+.future-progress {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.future-progress__content h2 {
+  max-width: 520px;
+}
+
+.future-progress__content > p {
+  max-width: 500px;
+  margin-bottom: 1.6rem;
+  color: var(--future-muted);
+  line-height: 1.9;
+}
+
+.future-progress__content .btn {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.progress-demo {
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border: 1px solid var(--future-border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 15px 40px rgba(44, 44, 44, 0.06);
+}
+
+.progress-demo__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--future-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.progress-demo__number {
+  margin-top: 1.8rem;
+  color: var(--future-coffee);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.progress-demo__number span {
+  color: var(--future-muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.progress-demo__bar {
+  height: 8px;
+  margin: 1rem 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #EEE5DA;
+}
+
+.progress-demo__bar span {
+  display: block;
+  width: 33.333%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--future-orange);
+}
+
+.progress-demo > p {
+  color: var(--future-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.progress-demo__milestones {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 1.8rem;
+}
+
+.milestone {
+  min-width: 0;
+  padding-top: 1rem;
+  border-top: 2px solid var(--future-border);
+}
+
+.milestone > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--future-muted);
+  background: #F1ECE6;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.milestone > p {
+  margin: 0.65rem 0 0;
+  color: var(--future-muted);
+  font-size: 0.8rem;
+}
+
+.milestone--active {
+  border-color: var(--future-coffee);
+}
+
+.milestone--active > span {
+  color: #fff;
+  background: var(--future-coffee);
+}
+
+.milestone--active > p {
+  color: var(--future-coffee);
+  font-weight: 700;
+}
+
+/* =========================================================
+   Closing call to action
+   ========================================================= */
+
+.future-cta {
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  color: var(--future-cream);
+  background:
+    radial-gradient(circle at 85% 15%, rgba(244, 162, 97, 0.2), transparent 30%),
+    var(--future-coffee);
+  text-align: center;
+}
+
+.future-cta__inner {
+  max-width: 760px;
+}
+
+.future-cta .future-eyebrow {
+  color: var(--future-orange);
+}
+
+.future-cta h2 {
+  margin-top: 1rem;
+}
+
+.future-cta p {
+  margin-bottom: 1.7rem;
+  color: rgba(255, 248, 240, 0.8);
+  line-height: 1.8;
+}
+
+.future-cta .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.future-cta .btn-light {
+  color: var(--future-coffee);
+  background: var(--future-cream);
+  border: 1px solid var(--future-cream);
+}
+
+.future-cta .btn-light:hover {
+  background: var(--future-orange);
+  border-color: var(--future-orange);
+}
+
+/* =========================================================
+   Animations
+   ========================================================= */
+
+@keyframes futureFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes futureFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -9px;
+  }
+}
+
+@keyframes futureStar {
+  0%, 100% {
+    opacity: 0.6;
+    scale: 1;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1.2;
+  }
+}
+
+@keyframes roadmapReveal {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* =========================================================
+   Responsive layout
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .goal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .goal-card {
+    min-height: 210px;
+  }
+
+  .future-hero__inner {
+    gap: 1.5rem;
+  }
+
+  .future-art-book {
+    width: 125px;
+    height: 195px;
+  }
+
+  .future-orbit--one {
+    width: 270px;
+    height: 270px;
+  }
+
+  .future-orbit--two {
+    width: 340px;
+    height: 340px;
+  }
+
+  .roadmap-track {
+    gap: 1rem;
+  }
+
+  .roadmap-book {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .future-hero__inner,
+  .future-progress {
+    grid-template-columns: 1fr;
+  }
+
+  .future-hero__content {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .future-hero__content > p {
+    margin-inline: auto;
+  }
+
+  .future-hero__art {
+    min-height: 340px;
+  }
+
+  .roadmap-track {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap-book {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    grid-template-areas:
+      "stage stage"
+      "cover title"
+      "cover description"
+      "cover level";
+    align-items: start;
+    column-gap: 1.2rem;
+  }
+
+  .roadmap-stage {
+    grid-area: stage;
+  }
+
+  .roadmap-cover {
+    grid-area: cover;
+    width: 100px;
+    margin: 0;
+  }
+
+  .roadmap-book h4 {
+    grid-area: title;
+  }
+
+  .roadmap-book > p {
+    grid-area: description;
+    min-height: 0;
+  }
+
+  .roadmap-level {
+    grid-area: level;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .future-hero {
+    padding-block: 3rem;
+  }
+
+  .future-hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .future-hero__art {
+    min-height: 290px;
+  }
+
+  .future-art-book {
+    width: 105px;
+    height: 165px;
+    padding: 0.8rem 0.65rem;
+  }
+
+  .future-art-book strong {
+    font-size: 1.05rem;
+  }
+
+  .future-orbit--one {
+    width: 225px;
+    height: 225px;
+  }
+
+  .future-orbit--two {
+    width: 285px;
+    height: 285px;
+  }
+
+  .goal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .goal-card {
+    min-height: 0;
+  }
+
+  .roadmap-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .roadmap-book {
+    grid-template-columns: 82px minmax(0, 1fr);
+    column-gap: 1rem;
+    padding: 0.9rem;
+  }
+
+  .roadmap-cover {
+    width: 82px;
+    padding: 0.65rem;
+  }
+
+  .roadmap-cover span {
+    font-size: 0.95rem;
+  }
+
+  .roadmap-cover small {
+    font-size: 0.48rem;
+  }
+
+  .progress-demo__number {
+    font-size: 2.4rem;
+  }
+
+  .progress-demo__milestones {
+    gap: 0.4rem;
+  }
+}
+
+/* =========================================================
+   Accessibility — reduced motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .future-hero__content,
+  .future-art-book,
+  .future-art-star,
+  .roadmap {
+    animation: none !important;
+  }
+
+  .goal-card,
+  .roadmap-book,
+  .roadmap-cover {
+    transition: none !important;
+  }
+}

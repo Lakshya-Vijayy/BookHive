@@ -1,0 +1,291 @@
+
+/* =========================================================
+   BookHive — responsive overrides (load last)
+   Breakpoints: 1100 (laptop), 860 (tablet), 560 (phone)
+   ========================================================= */
+
+/* ==================== LAPTOP ==================== */
+
+@media (max-width: 1100px) {
+  .book-grid,
+  .featured .book-grid,
+  .related .book-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ==================== TABLET ==================== */
+
+@media (max-width: 860px) {
+  .container {
+    padding-inline: var(--space-4);
+  }
+
+  .section {
+    padding-block: var(--space-6);
+  }
+
+  /* Navigation collapses to a CSS-only menu */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: calc(var(--space-4) * -1);
+    right: calc(var(--space-4) * -1);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--coffee-dark);
+    padding: var(--space-3) var(--space-4) var(--space-5);
+    margin: 0;
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-toggle-input:checked ~ .nav-links {
+    display: flex;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid rgba(255, 248, 240, 0.15);
+  }
+
+  .nav-links a {
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+    border-bottom: 0;
+  }
+
+  .nav-links .login-link {
+    margin-top: var(--space-3);
+    justify-content: center;
+  }
+
+  .cart-link {
+    width: fit-content;
+  }
+
+  /* Hero */
+  .hero {
+    padding-block: var(--space-7);
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    text-align: center;
+  }
+
+  .hero__shelf {
+    order: -1;
+  }
+
+  .hero__shelf .cover {
+    max-width: 110px;
+  }
+
+  .hero__shelf .cover:nth-child(2) {
+    max-width: 125px;
+  }
+
+  /* Book grids */
+  .book-grid,
+  .featured .book-grid,
+  .related .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .category-grid,
+  .values {
+    grid-template-columns: 1fr;
+  }
+
+  /* Search toolbar */
+  .toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .toolbar .search-group-wrap {
+    grid-column: 1 / -1;
+  }
+
+  /* Book details */
+  .detail {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .detail__cover {
+    max-width: 260px;
+    margin-inline: auto;
+  }
+
+  /* Cart */
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    position: static;
+  }
+
+  /* About and contact */
+  .about-intro,
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}
+
+/* ==================== CART COVER SIZE ==================== */
+
+/*
+  Cart HTML uses:
+  .cart-list > .cart-item > .cover
+
+  The global .cover rule supplies the 2:3 aspect ratio.
+  These rules control the cart cover dimensions only.
+*/
+
+.cart-list .cart-item > .cover {
+  display: flex;
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: 2 / 3;
+  box-sizing: border-box;
+  justify-self: start;
+  align-self: start;
+  overflow: hidden;
+}
+
+/* Keep long cover titles inside the cover */
+.cart-list .cart-item > .cover .cover__title {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* ==================== PHONE ==================== */
+
+@media (max-width: 560px) {
+  /* Book grids */
+  .book-grid,
+  .featured .book-grid,
+  .related .book-grid {
+    gap: var(--space-3);
+  }
+
+  .book-card {
+    padding: var(--space-3);
+  }
+
+  .book-card__title {
+    font-size: 1rem;
+  }
+
+  .book-card .btn {
+    font-size: 0.85rem;
+    padding-inline: 0.5rem;
+  }
+
+  /* Search toolbar */
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .search-group {
+    flex-direction: column;
+  }
+
+  .search-group .btn {
+    width: 100%;
+  }
+
+  /* Forms */
+  .card {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  /* Compact cart item */
+  .cart-item {
+    grid-template-columns: 80px minmax(0, 1fr);
+    grid-template-areas:
+      "thumb info"
+      "qty total"
+      "remove remove";
+    gap: var(--space-3);
+  }
+
+  .cart-list .cart-item > .cover {
+    grid-area: thumb;
+    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 2 / 3;
+    justify-self: start;
+    align-self: start;
+  }
+
+  .cart-item__info {
+    grid-area: info;
+    min-width: 0;
+  }
+
+  .cart-item .qty {
+    grid-area: qty;
+    justify-self: start;
+  }
+
+  .cart-item__total {
+    grid-area: total;
+    align-self: center;
+  }
+
+  .cart-item .remove-btn {
+    grid-area: remove;
+    justify-self: start;
+    padding-left: 0;
+  }
+
+  /* Purchase controls */
+  .buy-row .btn,
+  .buy-row .qty {
+    width: 100%;
+  }
+
+  .buy-row .qty {
+    justify-content: space-between;
+  }
+
+  /* Footer */
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+
+/* ==================== TOUCHSCREEN SUPPORT ==================== */
+
+@media (hover: none) {
+  .cart-list .cart-item:hover > .cover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .cart-list .cart-item > .cover {
+    transition: none !important;
+  }
+}

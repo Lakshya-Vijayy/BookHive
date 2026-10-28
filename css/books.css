@@ -1,0 +1,454 @@
+/* =========================================================
+   BookHive — CSS-only animations for all inner pages
+   ========================================================= */
+
+/* =========================================================
+   Book covers — smooth tilt and lift
+   ========================================================= */
+
+.book-card__cover .cover,
+.detail__cover,
+.cart-item > .cover {
+  transform-origin: bottom center;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+
+/* Books listing */
+
+.book-card__cover:hover .cover {
+  transform: translateY(-7px) rotate(-2deg) scale(1.03);
+  box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+/* Alternate tilt for even-numbered books */
+
+.book-grid .book-card:nth-child(even)
+.book-card__cover:hover .cover {
+  transform: translateY(-7px) rotate(2deg) scale(1.03);
+}
+
+/* =========================================================
+   Book detail page
+   ========================================================= */
+
+.detail__cover {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 0;
+  height: auto;
+  box-sizing: border-box;
+  justify-self: center;
+  transform-origin: bottom center;
+  animation: detailBookEnter 0.8s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.detail__cover img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.detail__cover:hover {
+  transform: translateY(-5px) rotate(-2deg) scale(1.02);
+  box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
+}
+
+@keyframes detailBookEnter {
+  from {
+    opacity: 0;
+    translate: -18px 0;
+    rotate: -2deg;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+    rotate: 0deg;
+  }
+}
+
+/* Detail page content entrance */
+
+.detail__category,
+.detail__author,
+.detail__price,
+.detail__description,
+.detail .buy-row,
+.detail .meta-list {
+  animation: detailContentEnter 0.65s ease both;
+}
+
+.detail__author {
+  animation-delay: 80ms;
+}
+
+.detail__price {
+  animation-delay: 140ms;
+}
+
+.detail__description {
+  animation-delay: 200ms;
+}
+
+.detail .buy-row {
+  animation-delay: 260ms;
+}
+
+.detail .meta-list {
+  animation-delay: 320ms;
+}
+
+@keyframes detailContentEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   Books listing — scroll-driven card reveal
+   ========================================================= */
+
+.book-grid .book-card {
+  animation: booksBouncyReveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 80%;
+}
+
+.book-grid .book-card:nth-child(4n + 2) {
+  animation-delay: 70ms;
+}
+
+.book-grid .book-card:nth-child(4n + 3) {
+  animation-delay: 130ms;
+}
+
+.book-grid .book-card:nth-child(4n + 4) {
+  animation-delay: 190ms;
+}
+
+@keyframes booksBouncyReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.94);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   Cart — spacing, larger covers and layout
+   ========================================================= */
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cart-list .cart-item {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    "cover info qty total"
+    "cover info remove total";
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+
+  animation: cartItemEnter 0.55s ease both;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.cart-list .cart-item:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.cart-list .cart-item:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.cart-list .cart-item:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+/* Hovering the cart row must NOT move the book */
+
+.cart-list .cart-item:hover {
+  border-color: var(--orange);
+  box-shadow: var(--shadow-sm);
+  transform: none;
+}
+
+/* Cart cover sizing */
+
+.cart-list .cart-item > .cover {
+  grid-area: cover;
+  width: 140px;
+  min-width: 0;
+  aspect-ratio: 2 / 3;
+  height: auto;
+  box-sizing: border-box;
+  transform: none;
+  transform-origin: bottom center;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+
+/* IMPORTANT: animation triggers only over the cover itself */
+
+.cart-list .cart-item > .cover:hover {
+  transform: translateY(-7px) rotate(-4deg) scale(1.05);
+  box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+/* Book details beside the cover */
+
+.cart-list .cart-item__info {
+  grid-area: info;
+  min-width: 0;
+}
+
+.cart-list .cart-item__title {
+  overflow-wrap: anywhere;
+}
+
+/* Quantity controls */
+
+.cart-list .cart-item .qty {
+  grid-area: qty;
+  justify-self: center;
+}
+
+/* Total price */
+
+.cart-list .cart-item__total {
+  grid-area: total;
+  align-self: center;
+  white-space: nowrap;
+}
+
+/* Remove button */
+
+.cart-list .cart-item .remove-btn {
+  grid-area: remove;
+  justify-self: center;
+}
+
+@keyframes cartItemEnter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   Summary panel
+   ========================================================= */
+
+.summary {
+  transition: box-shadow 0.3s ease;
+}
+
+.summary:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* =========================================================
+   About page — value cards
+   ========================================================= */
+
+.value-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--orange);
+}
+
+/* =========================================================
+   Contact page
+   ========================================================= */
+
+.contact-info {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact-info:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Buttons */
+
+.btn {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   Tablet layout
+   ========================================================= */
+
+@media (max-width: 860px) {
+  .cart-list .cart-item {
+    grid-template-columns: 115px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "cover info info"
+      "cover qty total"
+      "cover remove remove";
+    gap: 1rem;
+  }
+
+  .cart-list .cart-item > .cover {
+    width: 115px;
+  }
+
+  .cart-list .cart-item .qty,
+  .cart-list .cart-item .remove-btn {
+    justify-self: start;
+  }
+}
+
+/* =========================================================
+   Mobile layout
+   ========================================================= */
+
+@media (max-width: 560px) {
+  .detail__cover {
+    max-width: 220px;
+  }
+
+  .cart-list {
+    gap: 1.5rem;
+  }
+
+  .cart-list .cart-item {
+    grid-template-columns: 82px minmax(0, 1fr);
+    grid-template-areas:
+      "cover info"
+      "cover qty"
+      "total total"
+      "remove remove";
+    gap: 0.85rem;
+    padding: 1rem;
+  }
+
+  .cart-list .cart-item > .cover {
+    width: 82px;
+  }
+
+  .cart-list .cart-item__total {
+    justify-self: start;
+  }
+}
+
+/* Fallback for browsers without scroll-driven animations */
+
+@supports not (animation-timeline: view()) {
+  .book-grid .book-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================================================
+   Touchscreens — disable hover-only book effects
+   ========================================================= */
+
+@media (hover: none) {
+  .book-card__cover:hover .cover,
+  .book-grid .book-card:nth-child(even)
+  .book-card__cover:hover .cover,
+  .detail__cover:hover,
+  .cart-list .cart-item > .cover:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* =========================================================
+   Accessibility — reduced motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .book-card__cover .cover,
+  .detail__cover,
+  .detail__cover img,
+  .cart-list .cart-item > .cover,
+  .cart-list .cart-item,
+  .summary,
+  .value-card,
+  .contact-info,
+  .btn,
+  .detail__category,
+  .detail__author,
+  .detail__price,
+  .detail__description,
+  .detail .buy-row,
+  .detail .meta-list {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .book-grid .book-card,
+  .detail__cover,
+  .detail__cover img,
+  .detail__category,
+  .detail__author,
+  .detail__price,
+  .detail__description,
+  .detail .buy-row,
+  .detail .meta-list,
+  .cart-list .cart-item {
+    opacity: 1;
+    transform: none;
+    translate: none;
+    rotate: none;
+  }
+}
