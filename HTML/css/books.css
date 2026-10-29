@@ -1,11 +1,6 @@
-/* =========================================================
-   BookHive — CSS-only animations for all inner pages
-   ========================================================= */
+/* BookHive inner-page animations */
 
-/* =========================================================
-   Book covers — smooth tilt and lift
-   ========================================================= */
-
+/* Book covers */
 .book-card__cover .cover,
 .detail__cover,
 .cart-item > .cover {
@@ -15,8 +10,6 @@
     box-shadow 0.35s ease;
 }
 
-/* Books listing */
-
 .book-card__cover:hover .cover {
   transform: translateY(-7px) rotate(-2deg) scale(1.03);
   box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
@@ -24,17 +17,12 @@
   z-index: 2;
 }
 
-/* Alternate tilt for even-numbered books */
-
 .book-grid .book-card:nth-child(even)
 .book-card__cover:hover .cover {
   transform: translateY(-7px) rotate(2deg) scale(1.03);
 }
 
-/* =========================================================
-   Book detail page
-   ========================================================= */
-
+/* Book details */
 .detail__cover {
   display: block;
   width: 100%;
@@ -43,9 +31,7 @@
   height: auto;
   box-sizing: border-box;
   justify-self: center;
-  transform-origin: bottom center;
-  animation: detailBookEnter 0.8s
-    cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: detailBookEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .detail__cover img {
@@ -74,8 +60,6 @@
     rotate: 0deg;
   }
 }
-
-/* Detail page content entrance */
 
 .detail__category,
 .detail__author,
@@ -118,10 +102,7 @@
   }
 }
 
-/* =========================================================
-   Books listing — scroll-driven card reveal
-   ========================================================= */
-
+/* Books listing */
 .book-grid .book-card {
   animation: booksBouncyReveal linear both;
   animation-timeline: view();
@@ -157,10 +138,7 @@
   }
 }
 
-/* =========================================================
-   Cart — spacing, larger covers and layout
-   ========================================================= */
-
+/* Cart */
 .cart-list {
   display: flex;
   flex-direction: column;
@@ -176,7 +154,6 @@
   align-items: center;
   gap: 1.25rem;
   padding: 1.5rem;
-
   animation: cartItemEnter 0.55s ease both;
   transition:
     border-color 0.25s ease,
@@ -195,15 +172,11 @@
   animation-delay: 240ms;
 }
 
-/* Hovering the cart row must NOT move the book */
-
 .cart-list .cart-item:hover {
   border-color: var(--orange);
   box-shadow: var(--shadow-sm);
   transform: none;
 }
-
-/* Cart cover sizing */
 
 .cart-list .cart-item > .cover {
   grid-area: cover;
@@ -219,16 +192,12 @@
     box-shadow 0.35s ease;
 }
 
-/* IMPORTANT: animation triggers only over the cover itself */
-
 .cart-list .cart-item > .cover:hover {
   transform: translateY(-7px) rotate(-4deg) scale(1.05);
   box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
   position: relative;
   z-index: 2;
 }
-
-/* Book details beside the cover */
 
 .cart-list .cart-item__info {
   grid-area: info;
@@ -239,22 +208,16 @@
   overflow-wrap: anywhere;
 }
 
-/* Quantity controls */
-
 .cart-list .cart-item .qty {
   grid-area: qty;
   justify-self: center;
 }
-
-/* Total price */
 
 .cart-list .cart-item__total {
   grid-area: total;
   align-self: center;
   white-space: nowrap;
 }
-
-/* Remove button */
 
 .cart-list .cart-item .remove-btn {
   grid-area: remove;
@@ -273,10 +236,6 @@
   }
 }
 
-/* =========================================================
-   Summary panel
-   ========================================================= */
-
 .summary {
   transition: box-shadow 0.3s ease;
 }
@@ -285,10 +244,7 @@
   box-shadow: var(--shadow-md);
 }
 
-/* =========================================================
-   About page — value cards
-   ========================================================= */
-
+/* About and contact */
 .value-card {
   transition:
     transform 0.3s ease,
@@ -302,10 +258,6 @@
   border-color: var(--orange);
 }
 
-/* =========================================================
-   Contact page
-   ========================================================= */
-
 .contact-info {
   transition:
     transform 0.3s ease,
@@ -316,8 +268,6 @@
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
 }
-
-/* Buttons */
 
 .btn {
   transition:
@@ -330,10 +280,7 @@
   transform: translateY(-2px);
 }
 
-/* =========================================================
-   Tablet layout
-   ========================================================= */
-
+/* Responsive layout */
 @media (max-width: 860px) {
   .cart-list .cart-item {
     grid-template-columns: 115px minmax(0, 1fr) auto;
@@ -353,10 +300,6 @@
     justify-self: start;
   }
 }
-
-/* =========================================================
-   Mobile layout
-   ========================================================= */
 
 @media (max-width: 560px) {
   .detail__cover {
@@ -387,8 +330,6 @@
   }
 }
 
-/* Fallback for browsers without scroll-driven animations */
-
 @supports not (animation-timeline: view()) {
   .book-grid .book-card {
     animation: none;
@@ -396,10 +337,6 @@
     transform: none;
   }
 }
-
-/* =========================================================
-   Touchscreens — disable hover-only book effects
-   ========================================================= */
 
 @media (hover: none) {
   .book-card__cover:hover .cover,
@@ -412,10 +349,7 @@
   }
 }
 
-/* =========================================================
-   Accessibility — reduced motion
-   ========================================================= */
-
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .book-card__cover .cover,
   .detail__cover,
@@ -450,5 +384,51 @@
     transform: none;
     translate: none;
     rotate: none;
+  }
+}
+
+/* Related books */
+.related .book-card__cover {
+  display: block;
+  overflow: visible;
+  transform-origin: bottom center;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+
+.related .book-card__cover:hover {
+  transform: translateY(-7px) rotate(-2deg) scale(1.03);
+  box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.related .book-card:nth-child(even) .book-card__cover:hover {
+  transform: translateY(-7px) rotate(2deg) scale(1.03);
+}
+
+.related .book-card__cover .book-cover-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.related .book-card__cover:hover .book-cover-image {
+  transform: scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .related .book-card__cover,
+  .related .book-card__cover .book-cover-image {
+    transition: none;
+  }
+
+  .related .book-card__cover:hover,
+  .related .book-card__cover:hover .book-cover-image {
+    transform: none;
+    box-shadow: none;
   }
 }

@@ -1,18 +1,6 @@
-
-/* =========================================================
-   BookHive — Home Page
-   Complete CSS-only animations for ALL books
-   ========================================================= */
-
-/* ==================== HERO SECTION ==================== */
-
 .hero {
   background:
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(244, 162, 97, 0.18),
-      transparent 45%
-    ),
+    radial-gradient(circle at 85% 20%, rgba(244, 162, 97, 0.18), transparent 45%),
     var(--coffee);
   color: var(--cream);
   padding-block: var(--space-8);
@@ -51,8 +39,6 @@
 .hero .btn-primary:focus-visible {
   outline-color: var(--cream);
 }
-
-/* ==================== HERO BOOKS ==================== */
 
 .hero__shelf {
   display: flex;
@@ -100,8 +86,6 @@
   }
 }
 
-/* Hover: lift and tilt each hero book */
-
 .hero__shelf .cover:hover {
   animation-play-state: paused;
   box-shadow: 0 16px 28px rgba(0, 0, 0, 0.35);
@@ -120,8 +104,6 @@
   transform: translateY(-7px) rotate(2deg) scale(1.03);
 }
 
-/* ==================== FEATURED BOOKS ==================== */
-
 .featured .book-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -130,13 +112,6 @@
   text-align: center;
   margin-top: var(--space-6);
 }
-
-/* ==================== ALL BOOK COVER INTERACTIONS ==================== */
-
-/*
-  Target book covers throughout the Home page.
-  Covers use the same lift-and-tilt interaction as inner pages.
-*/
 
 .featured .book-card__cover .cover,
 .featured .detail__cover,
@@ -147,8 +122,6 @@
     box-shadow 0.35s ease;
 }
 
-/* Standard book-card cover hover */
-
 .featured .book-card__cover:hover .cover {
   transform: translateY(-7px) rotate(-2deg) scale(1.03);
   box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
@@ -156,25 +129,22 @@
   z-index: 2;
 }
 
-/* Alternate tilt direction on even-numbered books */
-
 .featured .book-card:nth-child(even)
 .book-card__cover:hover .cover {
   transform: translateY(-7px) rotate(2deg) scale(1.03);
 }
 
-/* Keep cover hover smooth */
-
 .featured .book-card__cover .cover {
   will-change: transform;
 }
-
-/* ==================== FEATURED BOOK SCROLL REVEAL ==================== */
 
 .featured .book-card {
   animation: homeBouncyReveal linear both;
   animation-timeline: view();
   animation-range: entry 0% entry 80%;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .featured .book-card:nth-child(4n + 2) {
@@ -187,6 +157,10 @@
 
 .featured .book-card:nth-child(4n + 4) {
   animation-delay: 190ms;
+}
+
+.featured .book-card:hover {
+  box-shadow: var(--shadow-md);
 }
 
 @keyframes homeBouncyReveal {
@@ -206,8 +180,6 @@
   }
 }
 
-/* Fallback for browsers without scroll-driven animations */
-
 @supports not (animation-timeline: view()) {
   .featured .book-card {
     animation: none;
@@ -215,20 +187,6 @@
     transform: none;
   }
 }
-
-/* ==================== BOOK CARD HOVER ==================== */
-
-.featured .book-card {
-  transition:
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.featured .book-card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-/* ==================== CATEGORIES ==================== */
 
 .categories {
   background: var(--cream-deep);
@@ -298,8 +256,6 @@
   margin: 0;
 }
 
-/* ==================== RESPONSIVE ==================== */
-
 @media (max-width: 768px) {
   .hero__inner {
     grid-template-columns: 1fr;
@@ -322,8 +278,6 @@
     animation-range: entry 0% entry 65%;
   }
 }
-
-/* ==================== TOUCHSCREENS ==================== */
 
 @media (hover: none) {
   .hero__shelf .cover {
@@ -348,8 +302,6 @@
     transform: none;
   }
 }
-
-/* ==================== REDUCED MOTION ==================== */
 
 @media (prefers-reduced-motion: reduce) {
   .hero__shelf .cover,

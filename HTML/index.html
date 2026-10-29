@@ -4,37 +4,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Home | BookHive</title>
   <meta name="description" content="BookHive - India's favorite bookstore for novels, textbooks, biographies and more.">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/future-shelf.css">
-</head>
+  <style>
+    .featured .book-card__cover {
+      display: block;
+      overflow: visible;
+      transform-origin: bottom center;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+    }
 
+    .featured .book-card__cover .book-cover-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform 0.35s ease;
+    }
+
+    .featured .book-card__cover:hover {
+      transform: translateY(-7px) rotate(-2deg) scale(1.03);
+      box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .featured .book-card:nth-child(even) .book-card__cover:hover {
+      transform: translateY(-7px) rotate(2deg) scale(1.03);
+    }
+
+    .featured .book-card__cover:hover .book-cover-image {
+      transform: scale(1.02);
+    }
+
+    .featured .book-card__cover:focus-visible {
+      outline: 3px solid #2F6B3B;
+      outline-offset: 5px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .featured .book-card__cover,
+      .featured .book-card__cover .book-cover-image {
+        transition: none;
+      }
+
+      .featured .book-card__cover:hover,
+      .featured .book-card:nth-child(even) .book-card__cover:hover,
+      .featured .book-card__cover:hover .book-cover-image {
+        transform: none;
+      }
+    }
+  </style>
+</head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="BookHive home">Book<span>Hive</span></a>
-
       <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Open or close navigation menu">
       <label for="nav-toggle" class="nav-toggle" aria-hidden="true"><span></span></label>
-
       <ul class="nav-links">
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="books.html">Books</a></li>
         <li><a href="future-shelf.html">Future Shelf</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-
         <li>
           <a class="cart-link" href="cart.html" aria-label="Shopping cart, 2 items">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -45,15 +87,11 @@
             <span class="cart-badge" aria-hidden="true">2</span>
           </a>
         </li>
-
         <li><a class="login-link" href="login.html">Login</a></li>
       </ul>
     </div>
   </header>
-
   <main id="main">
-
-    <!-- Hero -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero__inner">
         <div>
@@ -62,7 +100,6 @@
           <p>India's favorite bookstore</p>
           <a class="btn btn-primary btn-lg" href="books.html">Browse Books</a>
         </div>
-
         <div class="hero__shelf" aria-hidden="true">
           <div class="cover cover--2">
             <span class="cover__title">Stories</span>
@@ -79,133 +116,85 @@
         </div>
       </div>
     </section>
-
-    <!-- Future Shelf promotional section -->
     <section class="section home-future" aria-labelledby="home-future-title">
       <div class="container">
         <div class="home-future__panel">
-
           <div class="home-future__content">
             <span class="future-eyebrow">INTRODUCING FUTURE SHELF</span>
-
-            <h2 id="home-future-title">
-              Don't just read books.<br>
-              <em>Become who you imagine.</em>
-            </h2>
-
-            <p>
-              Want to improve your English, explore business, unlock your
-              creativity or understand the world? Choose your goal and
-              discover a reading journey designed around your ambitions.
-            </p>
-
-            <a class="btn btn-primary btn-lg" href="future-shelf.html">
-              Build My Reading Journey
-              <span aria-hidden="true">↗</span>
-            </a>
-
-            <span class="home-future__note">
-              Four goals. Three learning stages. A new way to explore books.
-            </span>
+            <h2 id="home-future-title">Don't just read books.<br><em>Become who you imagine.</em></h2>
+            <p>Want to improve your English, explore business, unlock your creativity or understand the world? Choose your goal and discover a reading journey designed around your ambitions.</p>
+            <a class="btn btn-primary btn-lg" href="future-shelf.html">Build My Reading Journey <span aria-hidden="true">↗</span></a>
+            <span class="home-future__note">Four goals. Three learning stages. A new way to explore books.</span>
           </div>
-
           <div class="home-future__visual" aria-hidden="true">
             <div class="home-future__spark home-future__spark--one">✦</div>
             <div class="home-future__spark home-future__spark--two">✧</div>
-
             <div class="home-future__book home-future__book--back">
               <span>YOUR</span>
               <strong>FUTURE<br>SHELF</strong>
               <small>EXPLORE</small>
             </div>
-
             <div class="home-future__book home-future__book--front">
               <span>CHAPTER 01</span>
               <strong>YOUR<br>NEXT<br>CHAPTER</strong>
               <small>START HERE</small>
             </div>
-
             <div class="home-future__stamp">
               <span>READ</span>
               <span>GROW</span>
               <span>REPEAT</span>
             </div>
           </div>
-
         </div>
       </div>
     </section>
-
-    <!-- Featured books -->
     <section class="section featured" aria-labelledby="featured-title">
       <div class="container">
         <h2 id="featured-title" class="section-title">Featured Books</h2>
-
         <ul class="book-grid">
           <li class="book-card">
-            <a class="book-card__cover" href="book.html" aria-label="View details for The God of Small Things">
-              <div class="cover cover--1" role="img" aria-label="Cover of The God of Small Things by Arundhati Roy">
-                <span class="cover__title">The God of Small Things</span>
-                <span class="cover__author">Arundhati Roy</span>
-              </div>
+            <a class="book-card__cover" href="god-of-small-things.html" aria-label="View details for The God of Small Things">
+              <img class="book-cover-image" src="assets/images/books/god-of-small-things.jpg" alt="Cover of The God of Small Things by Arundhati Roy" loading="lazy">
             </a>
-            <h3 class="book-card__title"><a href="book.html">The God of Small Things</a></h3>
+            <h3 class="book-card__title"><a href="god-of-small-things.html">The God of Small Things</a></h3>
             <p class="book-card__author">Arundhati Roy</p>
             <p class="book-card__price price">&#8377;399</p>
             <button type="button" class="btn btn-primary">Add to Cart</button>
           </li>
-
           <li class="book-card">
-            <a class="book-card__cover" href="book.html" aria-label="View details for Wings of Fire">
-              <div class="cover cover--2" role="img" aria-label="Cover of Wings of Fire by A. P. J. Abdul Kalam">
-                <span class="cover__title">Wings of Fire</span>
-                <span class="cover__author">A. P. J. Abdul Kalam</span>
-              </div>
+            <a class="book-card__cover" href="wings-of-fire.html" aria-label="View details for Wings of Fire">
+              <img class="book-cover-image" src="assets/images/books/wings-of-fire.jpg" alt="Cover of Wings of Fire by A. P. J. Abdul Kalam" loading="lazy">
             </a>
-            <h3 class="book-card__title"><a href="book.html">Wings of Fire</a></h3>
+            <h3 class="book-card__title"><a href="wings-of-fire.html">Wings of Fire</a></h3>
             <p class="book-card__author">A. P. J. Abdul Kalam</p>
             <p class="book-card__price price">&#8377;299</p>
             <button type="button" class="btn btn-primary">Add to Cart</button>
           </li>
-
           <li class="book-card">
-            <a class="book-card__cover" href="book.html" aria-label="View details for The White Tiger">
-              <div class="cover cover--3" role="img" aria-label="Cover of The White Tiger by Aravind Adiga">
-                <span class="cover__title">The White Tiger</span>
-                <span class="cover__author">Aravind Adiga</span>
-              </div>
+            <a class="book-card__cover" href="white-tiger.html" aria-label="View details for The White Tiger">
+              <img class="book-cover-image" src="assets/images/books/white-tiger.jpg" alt="Cover of The White Tiger by Aravind Adiga" loading="lazy">
             </a>
-            <h3 class="book-card__title"><a href="book.html">The White Tiger</a></h3>
+            <h3 class="book-card__title"><a href="white-tiger.html">The White Tiger</a></h3>
             <p class="book-card__author">Aravind Adiga</p>
             <p class="book-card__price price">&#8377;349</p>
             <button type="button" class="btn btn-primary">Add to Cart</button>
           </li>
-
           <li class="book-card">
-            <a class="book-card__cover" href="book.html" aria-label="View details for Engineering Mathematics">
-              <div class="cover cover--4" role="img" aria-label="Cover of Engineering Mathematics by B. S. Grewal">
-                <span class="cover__title">Engineering Mathematics</span>
-                <span class="cover__author">B. S. Grewal</span>
-              </div>
+            <a class="book-card__cover" href="engineering-mathematics.html" aria-label="View details for Engineering Mathematics">
+              <img class="book-cover-image" src="assets/images/books/engineering-mathematics.jpg" alt="Cover of Engineering Mathematics by B. S. Grewal" loading="lazy">
             </a>
-            <h3 class="book-card__title"><a href="book.html">Engineering Mathematics</a></h3>
+            <h3 class="book-card__title"><a href="engineering-mathematics.html">Engineering Mathematics</a></h3>
             <p class="book-card__author">B. S. Grewal</p>
             <p class="book-card__price price">&#8377;550</p>
             <button type="button" class="btn btn-primary">Add to Cart</button>
           </li>
         </ul>
-
-        <p class="section-link">
-          <a class="btn btn-secondary" href="books.html">View all books</a>
-        </p>
+        <p class="section-link"><a class="btn btn-secondary" href="books.html">View all books</a></p>
       </div>
     </section>
-
-    <!-- Categories -->
     <section class="section categories" aria-labelledby="cat-title">
       <div class="container">
         <h2 id="cat-title" class="section-title">Browse by Category</h2>
-
         <ul class="category-grid">
           <li>
             <a class="category-card" href="books.html">
@@ -219,7 +208,6 @@
               <p>Novels and stories from Indian and world authors.</p>
             </a>
           </li>
-
           <li>
             <a class="category-card" href="books.html">
               <span class="category-card__icon">
@@ -232,7 +220,6 @@
               <p>Textbooks and study guides for college students.</p>
             </a>
           </li>
-
           <li>
             <a class="category-card" href="books.html">
               <span class="category-card__icon">
@@ -248,19 +235,14 @@
         </ul>
       </div>
     </section>
-
   </main>
-
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
-
         <div class="footer-brand">
           <a class="brand" href="index.html">Book<span>Hive</span></a>
           <p>A warm, focused bookstore for Indian readers.</p>
         </div>
-
         <nav class="footer-col" aria-label="Footer">
           <h2>Explore</h2>
           <ul>
@@ -270,7 +252,6 @@
             <li><a href="future-shelf.html">Future Shelf</a></li>
           </ul>
         </nav>
-
         <div class="footer-col">
           <h2>Follow</h2>
           <ul>
@@ -279,9 +260,7 @@
             <li><a href="#">Facebook</a></li>
           </ul>
         </div>
-
       </div>
-
       <p class="copyright">&copy; 2026 BookHive. All rights reserved.</p>
     </div>
   </footer>

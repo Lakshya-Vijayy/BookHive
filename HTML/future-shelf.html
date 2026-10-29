@@ -1,37 +1,27 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Future Shelf | BookHive</title>
   <meta name="description" content="Build your reading journey with BookHive Future Shelf. Discover books based on your learning goals.">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/future-shelf.css">
 </head>
-
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- Navigation -->
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="BookHive home">
-        Book<span>Hive</span>
-      </a>
-
-      <input type="checkbox" id="nav-toggle" class="nav-toggle-input"
-             aria-label="Open or close navigation menu">
+      <a class="brand" href="index.html" aria-label="BookHive home">Book<span>Hive</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Open or close navigation menu">
       <label for="nav-toggle" class="nav-toggle" aria-hidden="true">
         <span></span>
       </label>
-
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="books.html">Books</a></li>
@@ -43,124 +33,76 @@
       </ul>
     </div>
   </header>
-
   <main id="main">
-
-    <!-- Hero -->
     <section class="future-hero">
       <div class="container future-hero__inner">
         <div class="future-hero__content">
           <span class="future-eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
-
           <h1>Build the future <em>you imagine.</em></h1>
-
-          <p>
-            Your bookshelf can be more than a collection of books.
-            It can be a journey toward the person you want to become.
-          </p>
-
-          <a class="btn btn-primary btn-lg" href="#choose-goal">
-            Discover your reading path
-          </a>
+          <p>Your bookshelf can be more than a collection of books. It can be a journey toward the person you want to become.</p>
+          <a class="btn btn-primary btn-lg" href="#choose-goal">Discover your reading path</a>
         </div>
-
         <div class="future-hero__art" aria-hidden="true">
           <div class="future-orbit future-orbit--one"></div>
           <div class="future-orbit future-orbit--two"></div>
-
           <div class="future-art-book future-art-book--one">
             <span>YOUR</span>
             <strong>NEXT<br>CHAPTER</strong>
             <small>BEGINS WITH A BOOK</small>
           </div>
-
           <div class="future-art-book future-art-book--two">
             <span>GROW</span>
             <strong>ONE<br>PAGE AT<br>A TIME</strong>
           </div>
-
           <div class="future-art-book future-art-book--three">
             <span>IMAGINE</span>
             <strong>WHAT'S<br>POSSIBLE</strong>
           </div>
-
           <div class="future-art-star future-art-star--one">✦</div>
           <div class="future-art-star future-art-star--two">✧</div>
         </div>
       </div>
     </section>
-
-    <!-- Goal selection -->
     <section class="section future-goals" id="choose-goal">
       <div class="container">
-
         <div class="future-section-heading">
           <span class="future-eyebrow">STEP 01 — YOUR AMBITION</span>
           <h2>What would you like to explore?</h2>
-          <p>
-            Choose a goal. We'll show you a sample reading roadmap
-            designed around that interest.
-          </p>
+          <p>Choose a goal. We'll show you a sample reading roadmap designed around that interest.</p>
         </div>
-
         <div class="future-shelf-interactive">
-
-          <!-- CSS-only selection controls -->
-          <input class="future-radio" type="radio" name="future-goal"
-                 id="goal-english" checked>
-          <input class="future-radio" type="radio" name="future-goal"
-                 id="goal-business">
-          <input class="future-radio" type="radio" name="future-goal"
-                 id="goal-creativity">
-          <input class="future-radio" type="radio" name="future-goal"
-                 id="goal-philosophy">
-
+          <input class="future-radio" type="radio" name="future-goal" id="goal-english" checked>
+          <input class="future-radio" type="radio" name="future-goal" id="goal-business">
+          <input class="future-radio" type="radio" name="future-goal" id="goal-creativity">
+          <input class="future-radio" type="radio" name="future-goal" id="goal-philosophy">
           <div class="goal-grid">
-
             <label class="goal-card" for="goal-english">
               <span class="goal-card__icon" aria-hidden="true">Aa</span>
               <span class="goal-card__title">Improve my English</span>
-              <span class="goal-card__description">
-                Build vocabulary, communication and writing skills.
-              </span>
+              <span class="goal-card__description">Build vocabulary, communication and writing skills.</span>
               <span class="goal-card__select">Explore this path ↗</span>
             </label>
-
             <label class="goal-card" for="goal-business">
               <span class="goal-card__icon" aria-hidden="true">↗</span>
               <span class="goal-card__title">Explore business</span>
-              <span class="goal-card__description">
-                Discover entrepreneurship, money and strategy.
-              </span>
+              <span class="goal-card__description">Discover entrepreneurship, money and strategy.</span>
               <span class="goal-card__select">Explore this path ↗</span>
             </label>
-
             <label class="goal-card" for="goal-creativity">
               <span class="goal-card__icon" aria-hidden="true">✳</span>
               <span class="goal-card__title">Grow my creativity</span>
-              <span class="goal-card__description">
-                Find inspiration, new ideas and creative thinking.
-              </span>
+              <span class="goal-card__description">Find inspiration, new ideas and creative thinking.</span>
               <span class="goal-card__select">Explore this path ↗</span>
             </label>
-
             <label class="goal-card" for="goal-philosophy">
               <span class="goal-card__icon" aria-hidden="true">❋</span>
               <span class="goal-card__title">Understand the world</span>
-              <span class="goal-card__description">
-                Explore philosophy, human nature and big questions.
-              </span>
+              <span class="goal-card__description">Explore philosophy, human nature and big questions.</span>
               <span class="goal-card__select">Explore this path ↗</span>
             </label>
-
           </div>
-
-          <!-- Reading roadmaps -->
           <div class="roadmap-area">
-
-            <!-- English roadmap -->
-            <section class="roadmap roadmap--english"
-                     aria-labelledby="english-roadmap-title">
+            <section class="roadmap roadmap--english" aria-labelledby="english-roadmap-title">
               <div class="roadmap-heading">
                 <div>
                   <span class="future-eyebrow">YOUR READING ROADMAP</span>
@@ -169,9 +111,7 @@
                 </div>
                 <span class="roadmap-count">3 STAGES</span>
               </div>
-
               <div class="roadmap-track">
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 01 · START</span>
                   <div class="roadmap-cover roadmap-cover--english">
@@ -182,7 +122,6 @@
                   <p>Begin with useful words, reading habits and daily practice.</p>
                   <span class="roadmap-level">BEGINNER</span>
                 </article>
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 02 · BUILD</span>
                   <div class="roadmap-cover roadmap-cover--writing">
@@ -193,7 +132,6 @@
                   <p>Explore grammar, sentence structure and clear writing.</p>
                   <span class="roadmap-level">INTERMEDIATE</span>
                 </article>
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 03 · GROW</span>
                   <div class="roadmap-cover roadmap-cover--speak">
@@ -204,16 +142,10 @@
                   <p>Practise presenting ideas and communicating with clarity.</p>
                   <span class="roadmap-level">NEXT LEVEL</span>
                 </article>
-
               </div>
-              <p class="roadmap-note">
-                Sample learning themes, not verified book listings.
-              </p>
+              <p class="roadmap-note">Sample learning themes, not verified book listings.</p>
             </section>
-
-            <!-- Business roadmap -->
-            <section class="roadmap roadmap--business"
-                     aria-labelledby="business-roadmap-title">
+            <section class="roadmap roadmap--business" aria-labelledby="business-roadmap-title">
               <div class="roadmap-heading">
                 <div>
                   <span class="future-eyebrow">YOUR READING ROADMAP</span>
@@ -222,9 +154,7 @@
                 </div>
                 <span class="roadmap-count">3 STAGES</span>
               </div>
-
               <div class="roadmap-track">
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 01 · START</span>
                   <div class="roadmap-cover roadmap-cover--business">
@@ -235,7 +165,6 @@
                   <p>Explore saving, budgeting and basic financial decisions.</p>
                   <span class="roadmap-level">BEGINNER</span>
                 </article>
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 02 · BUILD</span>
                   <div class="roadmap-cover roadmap-cover--ideas">
@@ -246,7 +175,6 @@
                   <p>Learn about problems, customers and creating useful solutions.</p>
                   <span class="roadmap-level">INTERMEDIATE</span>
                 </article>
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 03 · GROW</span>
                   <div class="roadmap-cover roadmap-cover--strategy">
@@ -257,16 +185,10 @@
                   <p>Explore decision-making, teamwork and business strategy.</p>
                   <span class="roadmap-level">NEXT LEVEL</span>
                 </article>
-
               </div>
-              <p class="roadmap-note">
-                Sample learning themes, not verified book listings.
-              </p>
+              <p class="roadmap-note">Sample learning themes, not verified book listings.</p>
             </section>
-
-            <!-- Creativity roadmap -->
-            <section class="roadmap roadmap--creativity"
-                     aria-labelledby="creativity-roadmap-title">
+            <section class="roadmap roadmap--creativity" aria-labelledby="creativity-roadmap-title">
               <div class="roadmap-heading">
                 <div>
                   <span class="future-eyebrow">YOUR READING ROADMAP</span>
@@ -275,9 +197,7 @@
                 </div>
                 <span class="roadmap-count">3 STAGES</span>
               </div>
-
               <div class="roadmap-track">
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 01 · START</span>
                   <div class="roadmap-cover roadmap-cover--creativity">
@@ -288,7 +208,6 @@
                   <p>Develop curiosity and learn to notice new possibilities.</p>
                   <span class="roadmap-level">BEGINNER</span>
                 </article>
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 02 · BUILD</span>
                   <div class="roadmap-cover roadmap-cover--design">
@@ -299,7 +218,6 @@
                   <p>Explore brainstorming, design thinking and problem-solving.</p>
                   <span class="roadmap-level">INTERMEDIATE</span>
                 </article>
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 03 · GROW</span>
                   <div class="roadmap-cover roadmap-cover--create">
@@ -310,16 +228,10 @@
                   <p>Turn inspiration into projects, stories or useful solutions.</p>
                   <span class="roadmap-level">NEXT LEVEL</span>
                 </article>
-
               </div>
-              <p class="roadmap-note">
-                Sample learning themes, not verified book listings.
-              </p>
+              <p class="roadmap-note">Sample learning themes, not verified book listings.</p>
             </section>
-
-            <!-- Philosophy roadmap -->
-            <section class="roadmap roadmap--philosophy"
-                     aria-labelledby="philosophy-roadmap-title">
+            <section class="roadmap roadmap--philosophy" aria-labelledby="philosophy-roadmap-title">
               <div class="roadmap-heading">
                 <div>
                   <span class="future-eyebrow">YOUR READING ROADMAP</span>
@@ -328,9 +240,7 @@
                 </div>
                 <span class="roadmap-count">3 STAGES</span>
               </div>
-
               <div class="roadmap-track">
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 01 · START</span>
                   <div class="roadmap-cover roadmap-cover--philosophy">
@@ -341,7 +251,6 @@
                   <p>Begin exploring logic, curiosity and everyday beliefs.</p>
                   <span class="roadmap-level">BEGINNER</span>
                 </article>
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 02 · BUILD</span>
                   <div class="roadmap-cover roadmap-cover--ethics">
@@ -352,7 +261,6 @@
                   <p>Consider fairness, responsibility and different perspectives.</p>
                   <span class="roadmap-level">INTERMEDIATE</span>
                 </article>
-
                 <article class="roadmap-book">
                   <span class="roadmap-stage">STAGE 03 · GROW</span>
                   <div class="roadmap-cover roadmap-cover--wisdom">
@@ -363,48 +271,32 @@
                   <p>Explore philosophical traditions and questions about life.</p>
                   <span class="roadmap-level">NEXT LEVEL</span>
                 </article>
-
               </div>
-              <p class="roadmap-note">
-                Sample learning themes, not verified book listings.
-              </p>
+              <p class="roadmap-note">Sample learning themes, not verified book listings.</p>
             </section>
-
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Sample progress -->
     <section class="section future-progress-section">
       <div class="container">
         <div class="future-progress">
           <div class="future-progress__content">
             <span class="future-eyebrow">STEP 02 — YOUR JOURNEY</span>
             <h2>Every great journey begins with one page.</h2>
-            <p>
-              Your future shelf is a reminder that small reading
-              sessions can lead to new ideas, skills and perspectives.
-            </p>
-            <a href="books.html" class="btn btn-primary">
-              Explore the BookHive collection
-            </a>
+            <p>Your future shelf is a reminder that small reading sessions can lead to new ideas, skills and perspectives.</p>
+            <a href="books.html" class="btn btn-primary">Explore the BookHive collection</a>
           </div>
-
           <div class="progress-demo" aria-label="Illustrative reading progress">
             <div class="progress-demo__top">
               <span>YOUR READING JOURNEY</span>
               <span>DEMO</span>
             </div>
-
             <div class="progress-demo__number">01 <span>/ 03 stages</span></div>
-
             <div class="progress-demo__bar">
               <span></span>
             </div>
-
             <p>Start with one subject that inspires you.</p>
-
             <div class="progress-demo__milestones">
               <div class="milestone milestone--active">
                 <span>01</span>
@@ -423,8 +315,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Closing section -->
     <section class="future-cta">
       <div class="container future-cta__inner">
         <span class="future-eyebrow">THE NEXT CHAPTER IS YOURS</span>
@@ -433,10 +323,7 @@
         <a href="books.html" class="btn btn-light btn-lg">Browse all books</a>
       </div>
     </section>
-
   </main>
-
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
@@ -444,7 +331,6 @@
           <a class="brand" href="index.html">Book<span>Hive</span></a>
           <p>A warm, focused bookstore for Indian readers.</p>
         </div>
-
         <nav class="footer-col" aria-label="Footer navigation">
           <h2>Explore</h2>
           <ul>
@@ -454,7 +340,6 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
-
         <div class="footer-col">
           <h2>Follow</h2>
           <ul>
@@ -464,7 +349,6 @@
           </ul>
         </div>
       </div>
-
       <p class="copyright">&copy; 2026 BookHive. All rights reserved.</p>
     </div>
   </footer>

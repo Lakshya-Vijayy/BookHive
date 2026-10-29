@@ -1,8 +1,3 @@
-/* =========================================================
-   BookHive — Future Shelf
-   CSS-only goal selection and reading roadmaps
-   ========================================================= */
-
 :root {
   --future-coffee: #5B3A29;
   --future-orange: #F4A261;
@@ -13,10 +8,7 @@
   --future-green: #2E7D32;
 }
 
-/* =========================================================
-   Hero
-   ========================================================= */
-
+/* Hero */
 .future-hero {
   overflow: hidden;
   position: relative;
@@ -69,17 +61,16 @@
   line-height: 1.9;
 }
 
-.future-hero .btn {
+.future-hero .btn,
+.future-progress__content .btn,
+.future-cta .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
 }
 
-/* =========================================================
-   Decorative book illustration
-   ========================================================= */
-
+/* Decorative books */
 .future-hero__art {
   position: relative;
   display: flex;
@@ -119,6 +110,10 @@
   box-shadow:
     0 18px 35px rgba(44, 44, 44, 0.17),
     inset 7px 0 0 rgba(0, 0, 0, 0.12);
+  transform-origin: bottom center;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
   animation: futureFloat 5s ease-in-out infinite;
 }
 
@@ -158,6 +153,25 @@
   animation-delay: -3s;
 }
 
+.future-art-book:hover {
+  z-index: 5;
+  box-shadow:
+    0 16px 28px rgba(44, 44, 44, 0.2),
+    inset 7px 0 0 rgba(0, 0, 0, 0.12);
+}
+
+.future-art-book--one:hover {
+  transform: translateY(-7px) rotate(-8deg) translate(-35px, 0) scale(1.03);
+}
+
+.future-art-book--two:hover {
+  transform: translateY(-7px) rotate(9deg) translate(60px, 10px) scale(1.03);
+}
+
+.future-art-book--three:hover {
+  transform: translateY(-7px) rotate(-2deg) translate(5px, -45px) scale(1.03);
+}
+
 .future-art-star {
   position: absolute;
   z-index: 4;
@@ -178,10 +192,7 @@
   animation-delay: -1s;
 }
 
-/* =========================================================
-   Goal selection
-   ========================================================= */
-
+/* Goal selection */
 .future-goals {
   padding-block: clamp(3.5rem, 7vw, 6rem);
 }
@@ -207,8 +218,6 @@
   color: var(--future-muted);
   line-height: 1.8;
 }
-
-/* Hide radio buttons visually but retain keyboard access */
 
 .future-shelf-interactive {
   position: relative;
@@ -291,8 +300,6 @@
   font-weight: 700;
 }
 
-/* Selected goal styling */
-
 #goal-english:checked ~ .goal-grid label[for="goal-english"],
 #goal-business:checked ~ .goal-grid label[for="goal-business"],
 #goal-creativity:checked ~ .goal-grid label[for="goal-creativity"],
@@ -310,10 +317,7 @@
   outline-offset: 4px;
 }
 
-/* =========================================================
-   Roadmap visibility — CSS :checked interaction
-   ========================================================= */
-
+/* Roadmaps */
 .roadmap-area {
   margin-top: 3rem;
 }
@@ -362,10 +366,6 @@
   letter-spacing: 0.08em;
 }
 
-/* =========================================================
-   Roadmap cards
-   ========================================================= */
-
 .roadmap-track {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -413,12 +413,18 @@
     0 10px 20px rgba(44, 44, 44, 0.13),
     inset 6px 0 0 rgba(0, 0, 0, 0.15);
   transform-origin: bottom center;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
 }
 
 .roadmap-cover:hover {
-  transform: translateY(-5px) rotate(-3deg) scale(1.025);
-  box-shadow: 0 16px 25px rgba(44, 44, 44, 0.2);
+  transform: translateY(-7px) rotate(-2deg) scale(1.03);
+  box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
+}
+
+.roadmap-book:nth-child(even) .roadmap-cover:hover {
+  transform: translateY(-7px) rotate(2deg) scale(1.03);
 }
 
 .roadmap-cover span {
@@ -520,10 +526,7 @@
   line-height: 1.6;
 }
 
-/* =========================================================
-   Progress demo
-   ========================================================= */
-
+/* Progress demo */
 .future-progress-section {
   padding-block: clamp(3rem, 6vw, 5rem);
   background: #F7F0E7;
@@ -545,11 +548,6 @@
   margin-bottom: 1.6rem;
   color: var(--future-muted);
   line-height: 1.9;
-}
-
-.future-progress__content .btn {
-  display: inline-flex;
-  text-decoration: none;
 }
 
 .progress-demo {
@@ -653,10 +651,7 @@
   font-weight: 700;
 }
 
-/* =========================================================
-   Closing call to action
-   ========================================================= */
-
+/* Call to action */
 .future-cta {
   padding: clamp(3.5rem, 7vw, 6rem) 0;
   color: var(--future-cream);
@@ -684,13 +679,6 @@
   line-height: 1.8;
 }
 
-.future-cta .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
-
 .future-cta .btn-light {
   color: var(--future-coffee);
   background: var(--future-cream);
@@ -702,10 +690,7 @@
   border-color: var(--future-orange);
 }
 
-/* =========================================================
-   Animations
-   ========================================================= */
-
+/* Animations */
 @keyframes futureFadeUp {
   from {
     opacity: 0;
@@ -752,10 +737,7 @@
   }
 }
 
-/* =========================================================
-   Responsive layout
-   ========================================================= */
-
+/* Responsive layout */
 @media (max-width: 1000px) {
   .goal-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -800,8 +782,8 @@
   }
 
   .future-hero__content {
-    text-align: center;
     margin-inline: auto;
+    text-align: center;
   }
 
   .future-hero__content > p {
@@ -927,10 +909,6 @@
   }
 }
 
-/* =========================================================
-   Accessibility — reduced motion
-   ========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
   .future-hero__content,
   .future-art-book,
@@ -941,7 +919,17 @@
 
   .goal-card,
   .roadmap-book,
+  .future-art-book,
   .roadmap-cover {
     transition: none !important;
+  }
+
+  .future-art-book:hover,
+  .future-art-book--one:hover,
+  .future-art-book--two:hover,
+  .future-art-book--three:hover,
+  .roadmap-cover:hover,
+  .roadmap-book:nth-child(even) .roadmap-cover:hover {
+    transform: none !important;
   }
 }

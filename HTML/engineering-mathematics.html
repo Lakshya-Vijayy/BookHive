@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering Mathematics | BookHive</title>
+  <meta name="description" content="Discover Engineering Mathematics by B. S. Grewal at BookHive.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/books.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    main > .container {
+      padding-top: 2rem;
+    }
+
+    .detail {
+      display: grid;
+      grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+      align-items: start;
+      gap: 3rem;
+    }
+
+    .detail__cover {
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      justify-self: center;
+      align-self: start;
+      overflow: visible;
+      border-radius: 10px;
+      transform-origin: bottom center;
+      transition:
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.35s ease;
+    }
+
+    .detail__cover .book-cover-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 560px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .detail__cover:hover {
+      transform: translateY(-7px) rotate(-2deg) scale(1.02);
+      box-shadow: 0 16px 28px rgba(44, 44, 44, 0.2);
+    }
+
+    .detail__description {
+      max-width: 650px;
+      line-height: 1.8;
+      overflow-wrap: anywhere;
+    }
+
+    .detail .buy-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .book-card__cover {
+      display: block;
+      overflow: hidden;
+    }
+
+    .book-card__cover .book-cover-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+
+    .book-card__cover:hover .book-cover-image {
+      transform: scale(1.04);
+    }
+
+    .detail .meta-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      padding: 0;
+    }
+
+    .detail .meta-list dt {
+      min-width: 0;
+      margin: 0;
+      padding: 0.85rem 0.75rem 0.2rem;
+      background: #f6e9da;
+      border: 1px solid #e6d5c3;
+      border-bottom: 0;
+      border-radius: 10px 10px 0 0;
+      color: #5b3a29;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .detail .meta-list dd {
+      min-width: 0;
+      margin: 0;
+      padding: 0.2rem 0.75rem 0.85rem;
+      background: #fff;
+      border: 1px solid #e6d5c3;
+      border-top: 0;
+      border-radius: 0 0 10px 10px;
+      color: #2c2c2c;
+      font-size: 0.95rem;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 860px) {
+      .detail {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+      }
+
+      .detail__cover {
+        max-width: 260px;
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .detail__cover {
+        max-width: 220px;
+      }
+
+      .detail .meta-list {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .detail__cover,
+      .book-card__cover .book-cover-image {
+        transition: none;
+      }
+
+      .detail__cover:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="BookHive home">Book<span>Hive</span></a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Open or close navigation menu">
+      <label for="nav-toggle" class="nav-toggle" aria-hidden="true"><span></span></label>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="books.html" aria-current="page">Books</a></li>
+        <li><a href="future-shelf.html">Future Shelf</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a class="cart-link" href="cart.html" aria-label="Shopping cart, 2 items">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="20" r="1.5"/>
+              <circle cx="18" cy="20" r="1.5"/>
+              <path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L21 7H6"/>
+            </svg>
+            <span class="cart-badge" aria-hidden="true">2</span>
+          </a>
+        </li>
+        <li><a class="login-link" href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <article class="detail">
+        <div class="detail__cover">
+          <img class="book-cover-image" src="assets/images/books/engineering-mathematics.jpg" alt="Cover of Engineering Mathematics by B. S. Grewal">
+        </div>
+        <div>
+          <span class="detail__category">Education &amp; Reference</span>
+          <h1>Engineering Mathematics</h1>
+          <p class="detail__author">by B. S. Grewal</p>
+          <p class="detail__price price">&#8377;550</p>
+          <p class="availability availability--in">In stock</p>
+          <p class="detail__description">
+            Engineering Mathematics by B. S. Grewal is a widely used reference
+            for engineering students studying mathematical concepts and their
+            applications. The book covers important topics such as calculus,
+            differential equations, linear algebra, complex numbers, vector
+            analysis, Laplace transforms, Fourier series, and numerical
+            methods, depending on the edition. Its worked examples and
+            practice problems help students develop problem-solving skills
+            and strengthen their understanding of mathematical techniques
+            used in engineering. It can serve as a useful study companion
+            for coursework, revision, and exam preparation.
+          </p>
+          <div class="buy-row">
+            <div class="qty" role="group" aria-label="Quantity">
+              <button type="button" aria-label="Decrease quantity">&minus;</button>
+              <span class="qty__value" aria-live="polite">1</span>
+              <button type="button" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg">Add to Cart</button>
+          </div>
+          <dl class="meta-list">
+            <dt>Category</dt>
+            <dd>Engineering</dd>
+            <dt>Language</dt>
+            <dd>English</dd>
+            <dt>Format</dt>
+            <dd>Paperback</dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+
+    <section class="section related" aria-labelledby="related-title">
+      <div class="container">
+        <h2 id="related-title" class="section-title">You may also like</h2>
+        <ul class="book-grid">
+          <li class="book-card">
+            <a class="book-card__cover" href="wings-of-fire.html" aria-label="View details for Wings of Fire">
+              <img class="book-cover-image" src="assets/images/books/wings-of-fire.jpg" alt="Cover of Wings of Fire by A. P. J. Abdul Kalam" loading="lazy">
+            </a>
+            <h3 class="book-card__title"><a href="wings-of-fire.html">Wings of Fire</a></h3>
+            <p class="book-card__author">A. P. J. Abdul Kalam</p>
+            <p class="book-card__price price">&#8377;299</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+          <li class="book-card">
+            <a class="book-card__cover" href="psychology-of-money.html" aria-label="View details for The Psychology of Money">
+              <img class="book-cover-image" src="assets/images/books/psychology-of-money.jpg" alt="Cover of The Psychology of Money by Morgan Housel" loading="lazy">
+            </a>
+            <h3 class="book-card__title"><a href="psychology-of-money.html">The Psychology of Money</a></h3>
+            <p class="book-card__author">Morgan Housel</p>
+            <p class="book-card__price price">&#8377;399</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+          <li class="book-card">
+            <a class="book-card__cover" href="autobiography-of-a-yogi.html" aria-label="View details for Autobiography of a Yogi">
+              <img class="book-cover-image" src="assets/images/books/autobiography-of-a-yogi.jpg" alt="Cover of Autobiography of a Yogi by Paramahansa Yogananda" loading="lazy">
+            </a>
+            <h3 class="book-card__title"><a href="autobiography-of-a-yogi.html">Autobiography of a Yogi</a></h3>
+            <p class="book-card__author">Paramahansa Yogananda</p>
+            <p class="book-card__price price">&#8377;275</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+          <li class="book-card">
+            <a class="book-card__cover" href="malgudi-days.html" aria-label="View details for Malgudi Days">
+              <img class="book-cover-image" src="assets/images/books/malgudi-days.jpg" alt="Cover of Malgudi Days by R. K. Narayan" loading="lazy">
+            </a>
+            <h3 class="book-card__title"><a href="malgudi-days.html">Malgudi Days</a></h3>
+            <p class="book-card__author">R. K. Narayan</p>
+            <p class="book-card__price price">&#8377;249</p>
+            <button type="button" class="btn btn-primary">Add to Cart</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">Book<span>Hive</span></a>
+          <p>A warm, focused bookstore for Indian readers.</p>
+        </div>
+        <nav class="footer-col" aria-label="Footer">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="future-shelf.html">Future Shelf</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h2>Follow</h2>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">X (Twitter)</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 BookHive. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
