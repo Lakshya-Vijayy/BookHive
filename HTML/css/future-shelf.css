@@ -671,6 +671,7 @@
 
 .future-cta h2 {
   margin-top: 1rem;
+  color: var(--future-orange);
 }
 
 .future-cta p {
